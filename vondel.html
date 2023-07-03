@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vondel Drops</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    h1 {
+      color: #fff;
+      text-align: center;
+      padding-top: 20px;
+    }
+    
+    #canvas {
+      position: relative;
+      margin: 0 auto;
+      width: 800px;
+      height: 600px;
+      background-color: #111;
+    }
+    
+    #image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    #point {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #ff0000;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    #button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    #button {
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    #button:hover {
+      background-color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vondel Drops</h1>
+  <div id="canvas">
+    <img id="image" src="vondel.png" alt="Image">
+    <div id="point"></div>
+  </div>
+  <div id="button-container">
+    <button id="button" onclick="plotRandomPoint()">Where we dropping boys?</button>
+  </div>
+
+  <script>
+    function plotRandomPoint() {
+      var image = document.getElementById('image');
+      var point = document.getElementById('point');
+
+      var imageWidth = image.width;
+      var imageHeight = image.height;
+
+      var randomX = Math.floor(Math.random() * imageWidth);
+      var randomY = Math.floor(Math.random() * imageHeight);
+
+      point.style.left = randomX + 'px';
+      point.style.top = randomY + 'px';
+      point.style.transform = 'translate(-50%, -50%)';
+    }
+  </script>
+</body>
+</html>
