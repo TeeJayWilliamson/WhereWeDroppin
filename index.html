@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homepage</title>
+  <title>Random Drop Generators</title>
   <style>
     body {
       margin: 0;
@@ -10,42 +10,76 @@
       font-family: 'Arial', sans-serif;
     }
     
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    
     h1 {
       color: #fff;
       text-align: center;
       padding-top: 20px;
     }
     
-    #container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    
-    #button {
-      font-family: 'Arial', sans-serif;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 10px 20px;
-      background-color: #ff0000;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
+    .image-container {
+      display: inline-block;
+      margin: 10px;
+      position: relative;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
       cursor: pointer;
-      text-decoration: none;
     }
     
-    #button:hover {
-      background-color: #ff3333;
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s, filter 0.3s;
     }
+    
+    .image-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .image-container:hover img {
+      transform: scale(1.1);
+      filter: blur(2px);
+    }
+    
+    .image-container span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-weight: bold;
+      font-size: 28px;
+      text-shadow: 0 2px 50px rgba(0, 0, 0, 0.8);
+    }
+    
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1>Welcome to the Homepage</h1>
-    <a id="button" href="vondel.html">Explore Vondel Drops</a>
+  <div class="content">
+    <h1>Random Drop Generator</h1>
+    <div class="image-container">
+      <a href="vondel.html">
+        <img src="vondel.png" alt="Image 1">
+        <span>Vondel</span>
+      </a>
+    </div>
+    <div class="image-container">
+      <a href="#">
+        <img src="placeholder2.jpg" alt="Other Maps">
+        <span>Other Maps Placeholder</span>
+      </a>
+    </div>
   </div>
 </body>
 </html>
