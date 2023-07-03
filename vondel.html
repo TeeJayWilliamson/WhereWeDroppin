@@ -34,6 +34,7 @@
     }
     
     #point {
+      display: none; /* Initially hide the point element */
       position: absolute;
       width: 20px;
       height: 20px;
@@ -88,6 +89,8 @@
       point.style.left = randomX + 'px';
       point.style.top = randomY + 'px';
       point.style.transform = 'translate(-50%, -50%)';
+
+      point.style.display = 'block'; // Show the point element
     }
   </script>
 </body>
