@@ -83,6 +83,13 @@
     #button:hover {
       background-color: #ff3333;
     }
+
+    #message-container {
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -97,13 +104,17 @@
   </div>
   <div id="button-container">
     <button id="button" onclick="plotRandomPoint()">Where we dropping boys?</button>
+    <div id="message-container"></div>
   </div>
 
   <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
   <script>
+    var messageContainer = document.getElementById('message-container');
+
     function plotRandomPoint() {
       var image = document.getElementById('image');
       var point = document.getElementById('point');
+      var canvas = document.getElementById('canvas');
 
       var imageWidth = image.width;
       var imageHeight = image.height;
@@ -116,6 +127,23 @@
       point.style.transform = 'translate(-50%, -50%)';
 
       point.style.display = 'block'; // Show the point element
+
+      // Calculate the percentage coordinates of the random point
+      var percentageX = (randomX / imageWidth) * 100;
+      var percentageY = (randomY / imageHeight) * 100;
+
+      // Display a message based on the portion of the image the point is on
+      var message = '';
+      if (percentageY < 25) {
+        message = 'Top portion';
+      } else if (percentageY < 75) {
+        message = 'Middle portion';
+      } else {
+        message = 'Bottom portion';
+      }
+
+      // Update the message in the message container
+      messageContainer.textContent = message;
     }
   </script>
 </body>
